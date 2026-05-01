@@ -55,17 +55,7 @@ const site: SiteConfig = {
   menuItems: [
     { path: '/', labelKey: 'nav.home' },
     { path: '/guide', labelKey: 'site.nav.guide' },
-    {
-      labelKey: 'site.nav.projects',
-      path: '/mini-projects',
-      activePath: '/mini-projects',
-      dropdown: [
-        { path: '/mini-projects', labelKey: 'site.nav.mini' },
-        { path: '/beginner', labelKey: 'site.nav.beginner' },
-        { path: '/intermediate', labelKey: 'site.nav.intermediate' },
-        { path: '/advanced', labelKey: 'site.nav.advanced' },
-      ]
-    },
+    { path: '/mini-projects', labelKey: 'site.nav.projects', activePath: '/mini-projects' },
     { path: '/comparison', labelKey: 'site.nav.comparison' },
   ],
 

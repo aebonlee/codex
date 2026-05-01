@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import SEOHead from '../components/SEOHead';
+import ProjectSidebar from '../components/ProjectSidebar';
 import type { ReactElement } from 'react';
 
 const MiniProjects = (): ReactElement => {
@@ -80,45 +81,47 @@ const MiniProjects = (): ReactElement => {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="level-indicator">
-            <span className="level-dot active"></span>
-            <span className="level-dot"></span>
-            <span className="level-dot"></span>
-            <span className="level-dot"></span>
-            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ko ? '난이도: 입문' : 'Difficulty: Entry'}</span>
-          </div>
-
-          <div className="info-box">
-            <h4>{ko ? '준비물' : 'Prerequisites'}</h4>
-            <p>{ko
-              ? '• Codex CLI 설치 완료\n• OpenAI API 키 설정 완료\n• 터미널 기본 조작 (cd, ls, mkdir 등)'
-              : '• Codex CLI installed\n• OpenAI API key configured\n• Basic terminal skills (cd, ls, mkdir)'
-            }</p>
-          </div>
-
-          {projects.map((p, i) => (
-            <div key={i} className="project-card">
-              <h3>{p.title}</h3>
-              <div className="project-meta">
-                <span>⏱ {p.time}</span>
-                <span>📄 {p.files} {ko ? '파일' : 'file(s)'}</span>
-                <span className="card-badge badge-mini" style={{ margin: 0 }}>{ko ? '미니' : 'Mini'}</span>
-              </div>
-              <div className="project-desc">{p.desc}</div>
-              <div className="project-steps">
-                <h4>{ko ? '실습 단계' : 'Steps'}</h4>
-                <ol>{p.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
-              </div>
-              <div className="project-goal">
-                <h4>{ko ? '학습 목표' : 'Learning Goal'}</h4>
-                <p>{p.goal}</p>
-              </div>
+      <ProjectSidebar>
+        <section className="section">
+          <div className="container">
+            <div className="level-indicator">
+              <span className="level-dot active"></span>
+              <span className="level-dot"></span>
+              <span className="level-dot"></span>
+              <span className="level-dot"></span>
+              <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ko ? '난이도: 입문' : 'Difficulty: Entry'}</span>
             </div>
-          ))}
-        </div>
-      </section>
+
+            <div className="info-box">
+              <h4>{ko ? '준비물' : 'Prerequisites'}</h4>
+              <p>{ko
+                ? '• Codex CLI 설치 완료\n• OpenAI API 키 설정 완료\n• 터미널 기본 조작 (cd, ls, mkdir 등)'
+                : '• Codex CLI installed\n• OpenAI API key configured\n• Basic terminal skills (cd, ls, mkdir)'
+              }</p>
+            </div>
+
+            {projects.map((p, i) => (
+              <div key={i} className="project-card">
+                <h3>{p.title}</h3>
+                <div className="project-meta">
+                  <span>⏱ {p.time}</span>
+                  <span>📄 {p.files} {ko ? '파일' : 'file(s)'}</span>
+                  <span className="card-badge badge-mini" style={{ margin: 0 }}>{ko ? '미니' : 'Mini'}</span>
+                </div>
+                <div className="project-desc">{p.desc}</div>
+                <div className="project-steps">
+                  <h4>{ko ? '실습 단계' : 'Steps'}</h4>
+                  <ol>{p.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
+                </div>
+                <div className="project-goal">
+                  <h4>{ko ? '학습 목표' : 'Learning Goal'}</h4>
+                  <p>{p.goal}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </ProjectSidebar>
     </>
   );
 };

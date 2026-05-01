@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import SEOHead from '../components/SEOHead';
+import ProjectSidebar from '../components/ProjectSidebar';
 import type { ReactElement } from 'react';
 
 const AdvancedProjects = (): ReactElement => {
@@ -85,46 +86,48 @@ const AdvancedProjects = (): ReactElement => {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="level-indicator">
-            <span className="level-dot active"></span>
-            <span className="level-dot active"></span>
-            <span className="level-dot active"></span>
-            <span className="level-dot active"></span>
-            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ko ? '난이도: 고급' : 'Difficulty: Advanced'}</span>
-          </div>
-
-          <div className="info-box danger">
-            <h4>{ko ? '선행 요건' : 'Prerequisites'}</h4>
-            <p>{ko
-              ? '• 중급 프로젝트 3개 이상 완료\n• Full-Auto 모드 경험\n• Git 고급 조작 (rebase, cherry-pick, stash)\n• Docker 기본 지식\n• CI/CD 개념 이해\n• REST API 설계 경험'
-              : '• 3+ intermediate projects completed\n• Full-Auto mode experience\n• Advanced Git (rebase, cherry-pick, stash)\n• Docker basics\n• CI/CD concepts\n• REST API design experience'
-            }</p>
-          </div>
-
-          {projects.map((p, i) => (
-            <div key={i} className="project-card">
-              <h3>{p.title}</h3>
-              <div className="project-meta">
-                <span>⏱ {p.time}</span>
-                <span>📄 {p.files}</span>
-                <span>🔧 {p.mode}</span>
-                <span className="card-badge badge-advanced" style={{ margin: 0 }}>{ko ? '고급' : 'Advanced'}</span>
-              </div>
-              <div className="project-desc">{p.desc}</div>
-              <div className="project-steps">
-                <h4>{ko ? '실습 단계' : 'Steps'}</h4>
-                <ol>{p.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
-              </div>
-              <div className="project-goal">
-                <h4>{ko ? '학습 목표' : 'Learning Goal'}</h4>
-                <p>{p.goal}</p>
-              </div>
+      <ProjectSidebar>
+        <section className="section">
+          <div className="container">
+            <div className="level-indicator">
+              <span className="level-dot active"></span>
+              <span className="level-dot active"></span>
+              <span className="level-dot active"></span>
+              <span className="level-dot active"></span>
+              <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ko ? '난이도: 고급' : 'Difficulty: Advanced'}</span>
             </div>
-          ))}
-        </div>
-      </section>
+
+            <div className="info-box danger">
+              <h4>{ko ? '선행 요건' : 'Prerequisites'}</h4>
+              <p>{ko
+                ? '• 중급 프로젝트 3개 이상 완료\n• Full-Auto 모드 경험\n• Git 고급 조작 (rebase, cherry-pick, stash)\n• Docker 기본 지식\n• CI/CD 개념 이해\n• REST API 설계 경험'
+                : '• 3+ intermediate projects completed\n• Full-Auto mode experience\n• Advanced Git (rebase, cherry-pick, stash)\n• Docker basics\n• CI/CD concepts\n• REST API design experience'
+              }</p>
+            </div>
+
+            {projects.map((p, i) => (
+              <div key={i} className="project-card">
+                <h3>{p.title}</h3>
+                <div className="project-meta">
+                  <span>⏱ {p.time}</span>
+                  <span>📄 {p.files}</span>
+                  <span>🔧 {p.mode}</span>
+                  <span className="card-badge badge-advanced" style={{ margin: 0 }}>{ko ? '고급' : 'Advanced'}</span>
+                </div>
+                <div className="project-desc">{p.desc}</div>
+                <div className="project-steps">
+                  <h4>{ko ? '실습 단계' : 'Steps'}</h4>
+                  <ol>{p.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
+                </div>
+                <div className="project-goal">
+                  <h4>{ko ? '학습 목표' : 'Learning Goal'}</h4>
+                  <p>{p.goal}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </ProjectSidebar>
     </>
   );
 };

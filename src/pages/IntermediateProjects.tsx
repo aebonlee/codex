@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import SEOHead from '../components/SEOHead';
+import ProjectSidebar from '../components/ProjectSidebar';
 import type { ReactElement } from 'react';
 
 const IntermediateProjects = (): ReactElement => {
@@ -85,46 +86,48 @@ const IntermediateProjects = (): ReactElement => {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="level-indicator">
-            <span className="level-dot active"></span>
-            <span className="level-dot active"></span>
-            <span className="level-dot active"></span>
-            <span className="level-dot"></span>
-            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ko ? '난이도: 중급' : 'Difficulty: Intermediate'}</span>
-          </div>
-
-          <div className="info-box warning">
-            <h4>{ko ? '선행 요건' : 'Prerequisites'}</h4>
-            <p>{ko
-              ? '• 초급 프로젝트 3개 이상 완료\n• Auto-Edit 모드에서의 작업 경험\n• Git 기본 조작 (commit, branch, diff)\n• API 개발 또는 프론트엔드 기본 지식'
-              : '• 3+ beginner projects completed\n• Auto-Edit mode experience\n• Basic Git operations (commit, branch, diff)\n• API development or frontend basics'
-            }</p>
-          </div>
-
-          {projects.map((p, i) => (
-            <div key={i} className="project-card">
-              <h3>{p.title}</h3>
-              <div className="project-meta">
-                <span>⏱ {p.time}</span>
-                <span>📄 {p.files}</span>
-                <span>🔧 {p.mode}</span>
-                <span className="card-badge badge-intermediate" style={{ margin: 0 }}>{ko ? '중급' : 'Intermediate'}</span>
-              </div>
-              <div className="project-desc">{p.desc}</div>
-              <div className="project-steps">
-                <h4>{ko ? '실습 단계' : 'Steps'}</h4>
-                <ol>{p.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
-              </div>
-              <div className="project-goal">
-                <h4>{ko ? '학습 목표' : 'Learning Goal'}</h4>
-                <p>{p.goal}</p>
-              </div>
+      <ProjectSidebar>
+        <section className="section">
+          <div className="container">
+            <div className="level-indicator">
+              <span className="level-dot active"></span>
+              <span className="level-dot active"></span>
+              <span className="level-dot active"></span>
+              <span className="level-dot"></span>
+              <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{ko ? '난이도: 중급' : 'Difficulty: Intermediate'}</span>
             </div>
-          ))}
-        </div>
-      </section>
+
+            <div className="info-box warning">
+              <h4>{ko ? '선행 요건' : 'Prerequisites'}</h4>
+              <p>{ko
+                ? '• 초급 프로젝트 3개 이상 완료\n• Auto-Edit 모드에서의 작업 경험\n• Git 기본 조작 (commit, branch, diff)\n• API 개발 또는 프론트엔드 기본 지식'
+                : '• 3+ beginner projects completed\n• Auto-Edit mode experience\n• Basic Git operations (commit, branch, diff)\n• API development or frontend basics'
+              }</p>
+            </div>
+
+            {projects.map((p, i) => (
+              <div key={i} className="project-card">
+                <h3>{p.title}</h3>
+                <div className="project-meta">
+                  <span>⏱ {p.time}</span>
+                  <span>📄 {p.files}</span>
+                  <span>🔧 {p.mode}</span>
+                  <span className="card-badge badge-intermediate" style={{ margin: 0 }}>{ko ? '중급' : 'Intermediate'}</span>
+                </div>
+                <div className="project-desc">{p.desc}</div>
+                <div className="project-steps">
+                  <h4>{ko ? '실습 단계' : 'Steps'}</h4>
+                  <ol>{p.steps.map((s, j) => <li key={j}>{s}</li>)}</ol>
+                </div>
+                <div className="project-goal">
+                  <h4>{ko ? '학습 목표' : 'Learning Goal'}</h4>
+                  <p>{p.goal}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </ProjectSidebar>
     </>
   );
 };
