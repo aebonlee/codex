@@ -53,14 +53,12 @@ const site: SiteConfig = {
   ],
 
   menuItems: [
-    { path: '/', labelKey: 'nav.home' },
     { path: '/guide', labelKey: 'site.nav.guide' },
     { path: '/mini-projects', labelKey: 'site.nav.projects', activePath: '/mini-projects' },
     { path: '/comparison', labelKey: 'site.nav.comparison' },
   ],
 
   footerLinks: [
-    { path: '/', labelKey: 'nav.home' },
     { path: '/guide', labelKey: 'site.nav.guide' },
     { path: '/mini-projects', labelKey: 'site.nav.mini' },
     { path: '/comparison', labelKey: 'site.nav.comparison' },
