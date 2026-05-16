@@ -28,6 +28,7 @@ const BeginnerProjects = lazy(() => import('../pages/BeginnerProjects'));
 const IntermediateProjects = lazy(() => import('../pages/IntermediateProjects'));
 const AdvancedProjects = lazy(() => import('../pages/AdvancedProjects'));
 const Comparison = lazy(() => import('../pages/Comparison'));
+const About = lazy(() => import('../pages/About'));
 
 const Loading = (): ReactElement => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
@@ -77,7 +78,6 @@ const PublicLayout = (): ReactElement => {
               사이트 전용 페이지를 여기에 추가하세요.
               예:
               const Books = lazy(() => import('../pages/Books'));
-const About = lazy(() => import('../pages/About'));
               <Route path="/books" element={<Books />} />
               <Route path="/books/:category" element={<BookCategory />} />
             */}
