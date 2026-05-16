@@ -77,11 +77,14 @@ const PublicLayout = (): ReactElement => {
               사이트 전용 페이지를 여기에 추가하세요.
               예:
               const Books = lazy(() => import('../pages/Books'));
+const About = lazy(() => import('../pages/About'));
               <Route path="/books" element={<Books />} />
               <Route path="/books/:category" element={<BookCategory />} />
             */}
 
             {/* 404 */}
+            <Route path="/about" element={<About />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

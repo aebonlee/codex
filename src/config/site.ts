@@ -53,6 +53,7 @@ const site: SiteConfig = {
   ],
 
   menuItems: [
+    { path: '/about', labelKey: 'nav.about' },
     { path: '/guide', labelKey: 'site.nav.guide' },
     { path: '/mini-projects', labelKey: 'site.nav.projects', activePath: '/mini-projects' },
     { path: '/comparison', labelKey: 'site.nav.comparison' },
